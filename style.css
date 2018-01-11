@@ -1,0 +1,48 @@
+body{
+background-color:#696969;
+margin:0;
+padding:0;
+font-size: 15px;
+color:white;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    color:lightgray;
+}
+.container{
+    min-width:1000px;
+    background-color:black;
+    float:left;
+    height:500px;
+}
+.left{
+    float:left;
+    width:700px;
+    height: 100%;
+    background-color: #7a7a7a;
+}
+.right{
+    background-color: #9c9c9c;
+    float:left;
+    width:300px;
+    height: 100%;
+}
+.shop{
+    background-color:#474747;
+}
+ button.Butt {
+    background-color:#696969;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+span#MoneyCount{
+    font-size: 30px;
+}
