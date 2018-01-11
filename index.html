@@ -2,91 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <script>
-    //Global Var
-        var Money = 0;
-        var debt = 2000000;
-        var CashFlow = 0;
-    //ShopVar    
-        var ShopCount = 0;
-        var ShopCount2 = 0;
-        var ShopCost = 10;
-        var ShopCost2 = 500;
-        var ShopUpgrade= 0;
-        var UpgradePower= 0;
-    //AddMoney
-        function AddM(number){
-            Money = Money +number;
-            document.getElementById("MoneyCount").innerHTML = Money;
-        };
-    //TakeMoney
-        function TakeM(){
-            debt = debt +1;
-            
-            document.getElementById("MoneyDebt").innerHTML = debt;
-        };
-            
-        function CashFlows(){
-            var debt2;
-            debt2= debt;
-            CashFlow=debt-UpgradePower;
-            debt2-=Money;
-            document.getElementById("toWin").innerHTML=debt2;
-        };
-        
-    //ShopStuff
-        function UpgradeBuy(){
-            if (Money >= ShopCost){
-                ShopCount = ShopCount +1;
-                document.getElementById("ShopCount").innerHTML = ShopCount;
-                Money-=ShopCost;
-                document.getElementById("MoneyCount").innerHTML = Money;
-                ShopCost = ShopCost+1;
-                document.getElementById("ShopCost").innerHTML = ShopCost;
-                UpgradePower = UpgradePower +1;
-                document.getElementById("UpgradePower").innerHTML = UpgradePower;
-            };
-        };
-        
-       function UpgradeBuy2(){
-            if (Money >= ShopCost2){
-                ShopCount2 = ShopCount2+1;
-                document.getElementById("ShopCount2").innerHTML = ShopCount2;
-                Money -= ShopCost2;
-                document.getElementById("MoneyCount").innerHTML = Money;
-                ShopCost2 = ShopCost2 + 50;
-                document.getElementById("ShopCost2").innerHTML = ShopCost2;
-                UpgradePower = UpgradePower+10;
-                document.getElementById("UpgradePower").innerHTML = UpgradePower;
-            };
-        }; 
-        
-        
-        window.setInterval(function(){
-          AddM(UpgradePower);
-      }, 1000);
-        
-        window.setInterval(function(){
-          TakeM(debt);
-      }, 100);
-        window.setInterval(function(){
-            CashFlows(Money);
-        }, 100);
-            window.setInterval(function(){
-          CashFlows(debt2);
-      }, 1000);
-        window.setInterval(function(){
-            CashFlows(CashFlow);
-        }, 100);
-    /* function ShopUpgrade(){
-            ShopUpgrade = ShopCount;
-            if (ShopUpgrade >= 1){
-                Money = Money +2;
-                document.getElementById("MoneyCount").innerHTML = Money;
-            }
-        }; */         
-    </script>
-    
+    <script src="js.js" type="text/javascript"></script>
     
 </head>    
 <body>
@@ -95,8 +11,7 @@
         <div class="left">
             Na ile jesteś zadłużony: <span id="MoneyDebt"> 2000000 </span> <br />
             <span id="MoneyCount"> 0 </span>
-            <button onclick="AddM(1)" class="Butt" type="button" style="font-size:30px;     background-color: #707070;
-"> +1 </button>
+            <button onclick="AddM(1)" class="Butt" type="button" style="font-size:30px;     background-color: #707070;"> +1 </button>
             <br />
             
         </div>
@@ -104,23 +19,22 @@
         <div class="right">
             
             <button onclick="save()" class="Butt" type="button"> Save </button>
-            <button onclick="Load()" class="Butt" type="button"> Load </button>
+            <button onclick="load()" class="Butt" type="button"> Load </button>
             <button onclick="Reset()" class="Butt" type="button"> Reset </button>
             
             <div class="shop">
                 Shop: <br />
                 YouHave: <span id="ShopCount"> 0 </span> Upgrade 1lv. <br />
-                Upgrade Cost: <span id="ShopCost"> 10 </span> <button onclick="UpgradeBuy()" class="Butt" type="button"> Buy! </button> <br />
-                Upgrade power: <span id="UpgradePower"> 0 </span>
+                Upgrade Cost: <span id="ShopCost"> 10 </span> <button onclick="UpgradeBuy()" class="Butt" type="button" title="Upgrade Power: +1 Upgrade Cost: +1"> Buy! </button> <br />
                 <br />
                 <br />
                 
               YouHave: <span id="ShopCount2"> 0 </span> Upgrade 2lv. <br />
                 Upgrade Cost: <span id="ShopCost2"> 500 </span>
-                <button onclick="UpgradeBuy2()" class="Butt" type="button"> Buy! </button>  <br />
+                <button onclick="UpgradeBuy2()" class="Butt" type="button" title="Upgrade Power: +20 Upgrade Cost: +50"> Buy! </button>  <br />
                 Ile jeszcze zostało do spłaty: <span id="toWin"> 0 </span>
                 <br />
-                
+                Upgrade power: <span id="UpgradePower"> 0 </span>
                 <a href="instrukcja.html"> Instrukcja do gry </a>
             </div>
         </div>
