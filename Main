@@ -1,0 +1,42 @@
+package com.company;
+import java.util.Arrays;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Rozpoczynam grę.");
+
+        Gracz[] Table = new Gracz[15];
+
+        System.out.println("15 graczy zasiada do stołu");
+
+        for(int i=0; i<15; i++)
+        {
+            Table[i]= new Gracz();
+        }
+
+        System.out.println("Gracze rzucają kośćmi...");
+        int j=0;
+        while(j<3) {
+            System.out.println("...");
+            j++;
+        }
+
+        for(int i=0; i<15; i++) {
+            Table[i].throw1 = Table[i].draw();
+            Table[i].throw2 = Table[i].draw();
+            Table[i].pointsCalculator(Table[i].throw1, Table[i].throw2);
+        }
+
+        int[] basket = new int[2];
+
+        System.out.println("Punktacja: ");
+
+        for(int i=0; i<15; i++) {
+            Table[i].show(basket);
+            System.out.println("Losy gracza " + (i+1) + " to: " + basket[0] + " i " + basket[1] +
+                    " posiada: " + Table[i].sum + "punktów");
+        }
+    }
+}
