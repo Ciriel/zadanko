@@ -1,0 +1,26 @@
+package com.company;
+
+import java.util.Random;
+import java.util.RandomAccess;
+
+public class Gracz {
+    public int throw1, throw2, sum;
+
+    public int draw() {
+        Random rand = new Random();
+        int randNum = rand.nextInt(6) + 1;
+        return randNum;
+    }
+
+    public void show(int[] Basket) {
+        Basket[0] = throw1;
+        Basket[1] = throw2;
+    }
+
+    public void pointsCalculator(int throw1, int throw2) {
+        sum = throw1 + throw2;
+        if (throw1 == 6) sum += 5;
+        if (throw2 == 6) sum += 5;
+        if (throw1 + throw2 == 10) sum += 3;
+    }
+}
